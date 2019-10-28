@@ -1,25 +1,27 @@
-<div class="d-flex flex-column align-items-center mt-3">
-  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
-    <div class="card">
-      <div class="card-header">
-        投稿画面
+<div class="container">  
+  <div class="row">
+    <div class="col-md-8 offset-md-2 user-wrapper">
+      <div class="text-center">
+        <div class="post-new-edit-title">新規投稿</div>
       </div>
-      <div class="card-body">
-        <%= form_for @post, html: { multipart: true, class: "upload-images p-0 border-0" } do |f| %>
-          <div class="form-group row mt-2">
-            <div class="col-auto pr-0">
-              <%= image_tag avatar_url(current_user), class: "post-profile-icon" %>
-            </div>
-            <div class="col pl-0">
-              <%= f.text_field :caption, class: "form-control border-0", placeholder: "キャプションを書く" %>
-            </div>
-          </div>
-          <div class="mb-3">
+      <%= form_for(@post) do |f| %>
+        <div class="form-group">
+          <%= f.label :title, 'タイトル', class: 'post-new-edit-label' %>
+          <%= f.text_field :title, class: 'form-control', placeholder: '50文字以内。', id: 'post-count' %>
+        </div>
+        <div class='field'>
+          <%= f.label :tag_list, 'タグ', class: 'post-new-edit-label' %><br/>
+          <%= f.text_field :tag_list, class: 'form-control', placeholder: '半角スペース区切り。' %>
+        </div>
+        <div class="form-group">
             <%= file_field_tag "images[]", type: :file, multiple: false %>
-          </div>
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+        </div>    
+        <div class="form-group">
+          <%= f.label :content, '', class: 'post-new-edit-label' %>
+          <%= f.text_area :content, class: 'form-control', rows: "7", placeholder: '' %>
+        </div>     
+        <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block mt-4' %>
+      <% end %>
     </div>
   </div>
-</div> 
+</div>

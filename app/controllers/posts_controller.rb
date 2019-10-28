@@ -10,22 +10,18 @@ class PostsController < ApplicationController
     end
   
     def create
-      @post = Post.new(post_params)
-      if params[:images]
-        params[:images].each do |img|
-          @post.save
-          @post.photos.create(image: img)
-          redirect_to root_path
-          flash[:notice] = "投稿が保存されました"
-        end
-      else
+      @post = current_user.posts.build(post_params)
+      if @post.save
+        flash[:notice] = '投稿に成功しました。'
         redirect_to root_path
-        flash[:alert] = "投稿に失敗しました"
+      else
+        flash.now[:alert] = '投稿に失敗しました。'
+        render :new
       end
     end
   
     private
       def post_params
-        params.require(:post).permit(:caption).merge(user_id: current_user.id)
+        params.require(:post).permit(:tag_list, :title, :content).merge(user_id: current_user.id)
       end
-  end
+end
