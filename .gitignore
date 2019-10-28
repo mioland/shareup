@@ -27,4 +27,7 @@
 /config/master.key
 
 # Ignore facebook id and pass in env
-/.env 
+/.env
+
+# Ignore upload pictures
+public/uploads/ 
