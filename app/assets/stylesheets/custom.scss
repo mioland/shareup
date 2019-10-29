@@ -1,186 +1,170 @@
 body {
-    background: #f5f5f5;
-    font-size: 14px;
-    color: #262626;
-  }
-  
-  .logo-img {
-    background-image: image-url("logo.png");
-    background-repeat: no-repeat;
-    height: 100px;
-    width: 180px;
-    background-size: 160px;
-    background-size: 180px!important;
-  }
-  .main{
-    padding-top:100px;
-    width:100%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:20px;
-    text-align: center;
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #262626;
+}
 
-  .container{
-    max-width: 420px;
-    margin: 0 auto 30px;
-    background: #fff;
-    padding: 1.3em 0 0 0;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -moz-box-shadow: 0 1px 4px #ddd;
-    -webkit-box-shadow: 0 1px 4px #ddd;
-    box-shadow: 0 1px 4px #ddd;
-  }
+.logo-img {
+  background-image: image-url("logo.png");
+  background-repeat: no-repeat;
+  height: 56px;
+  width: 180px;
+  background-size: 160px;
+  background-size: 180px!important;
+}
 
-  .form-sub-color{
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 30px auto 30px;
-  }  
-  
-  .form-wrap{
-    padding:20px 20px;
-  }
+.form-wrap{
+  padding:20px 20px;
+  margin:20px 0px;
+}
 
-  .profile-wrap{
-    margin:40px 0px;
-  }
-  
-  .round-img{
-    border-radius:50%;
-    width: 120px;
-    height: 120px;
-  }
-  
-  .edit-profile-btn {
-    margin: 15px 0 0 15px;
-    font-weight: bold;
-    height: 26px;
-    line-height: 26px;
-    padding: 0 26px;
-    border-color: #dbdbdb;
-    font-size: 14px;
-  }
-  
-  .setting {
-    background-image: image-url("parts4.png");
-    background-repeat: no-repeat;
-    height: 24px;
-    width: 24px;
-    background-color: transparent;
-    margin: 18px 0 0 10px;
-    background-size: 22px!important;
-    border: none;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  .profile-form-wrap {
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #e6e6e6;
-  }
-  .profile-form-wrap label {
-    font-weight: bold;
-  }
-  .edit-profile-wrapper {
-    margin-top: 60px;
-  }
-  .post-profile-icon {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  .card-wrap {
-    margin: 40px 0px;
-  }
-  .no-text-decoration:hover {
-    text-decoration: none;
-  }
-  .black-color {
-    color: #262626;
-  }
-  .parts {
-    margin: 12px 0;
-  }
-  .love {
-    background-image: image-url("parts5");
-    background-repeat: no-repeat;
-    height: 36px;
-    width: 36px;
-    background-size: 36px !important;
-  }
-  .comment {
-    margin-left: 8px;
-    background-image: image-url("parts6");
-    background-repeat: no-repeat;
-    height: 36px;
-    width: 36px;
-    background-size: 40px !important;
-  }
-  .post-time {
-    margin:0;
-    color:#999;
-    font-size:10px;
-  }
-  .post-sub-text {
-    text-decoration: none;
-    color: #262626;
-  }
-  
-  .post-wrap .col-md-8 {
-    padding: 0px;
-  }
-  
-  .card-right {
-    padding: 20px;
-  }
-  
-  .card-right-name {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
-  }
-  
-  .card-right-comment {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
-    height: 320px;
-    overflow: auto;
-  }
-  
-  .postShow-wrap {
-    border: 1px solid #e6e6e6;
-    margin-top: 40px;
-  }
-  
-  .delete-post-icon {
-    background-image: image-url("parts9");
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    background-size: 20px !important;
-    color: #262626;
-    font-size: 20px;
-  }
+.profile-wrap{
+  margin:40px 0px;
+}
 
-  .loved {
-    background-image: image-url("parts7");
-    background-repeat: no-repeat;
-    height: 36px;
-    width: 36px;
-    background-size: 36px !important;
+.round-img{
+  border-radius:50%;
+  width: 120px;
+  height: 120px;
+}
+
+.edit-profile-btn {
+  margin: 15px 0 0 15px;
+  font-weight: bold;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 26px;
+  border-color: #dbdbdb;
+  font-size: 14px;
+}
+
+.setting {
+  background-image: image-url("parts4.png");
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  margin: 18px 0 0 10px;
+  background-size: 22px!important;
+  border: none;
+  &:hover {
+    cursor: pointer;
   }
-  
-  .hide-text {
-    display: block;
-    overflow: hidden;
-    text-indent: 110%;
-    white-space: nowrap;
-  }
+}
+
+.profile-form-wrap {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #e6e6e6;
+}
+
+.profile-form-wrap label {
+  font-weight: bold;
+}
+
+.edit-profile-wrapper {
+  margin-top: 60px;
+}
+
+.post-profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.card-wrap {
+  margin: 40px 0px;
+}
+
+.no-text-decoration:hover {
+  text-decoration: none;
+}
+
+.black-color {
+  color: #262626;
+}
+
+.parts {
+  margin: 12px 0;
+}
+
+.love {
+  background-image: image-url("parts5");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+
+.comment {
+  margin-left: 8px;
+  background-image: image-url("parts6");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 40px !important;
+}
+
+.post-time {
+  margin:0;
+  color:#999;
+  font-size:10px;
+}
+
+.post-sub-text {
+  text-decoration: none;
+  color: #262626;
+}
+
+.post-wrap .col-md-8 {
+  padding: 0px;
+}
+
+.card-right {
+  padding: 20px;
+}
+
+.card-right-name {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.card-right-comment {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+  height: 320px;
+  overflow: auto;
+}
+
+.postShow-wrap {
+  border: 1px solid #e6e6e6;
+  margin-top: 40px;
+}
+
+.delete-post-icon {
+  background-image: image-url("parts9");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: 20px !important;
+  color: #262626;
+  font-size: 20px;
+}
+
+.loved {
+  background-image: image-url("parts7");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
 }
 
 .delete-comment {
@@ -190,14 +174,126 @@ body {
   height: 11px;
   float: right;
   margin: 5px 0 0 10px;
-  background-size: 11px !important; 
+  background-size: 11px !important;
 }
-.user-wrapper {
-  background-color: #fff;
-  border: 1px solid #e0e4e7;
-  border-radius: 2px;
-  color: #464646;
-  margin-top: 45px;
-  margin-bottom: 20px;
-  padding: 30px;
+
+/* direct_messages */
+.chatPage {
+  input[type="text"]:focus {
+    outline: 0;
+    // border-color: orange;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #e8e8e8;
+    .linkToMatching {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 40px;
+      border: 5px solid;
+      border-radius: 4px;
+      border-color:  transparent transparent #fd5068 #fd5068;
+      transform: rotate(45deg);
+    }
+    .chatPartner {
+      &_name {
+        margin-top: 10px;
+        text-align: center;
+      }
+      &_img {
+        width: 100px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        & > img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .messagesArea {
+    overflow: scroll;
+    height: 72vh;
+    .message {
+      &.selfMessage {
+        display: flex;
+        flex-direction: row-reverse;
+        .commonMessage {
+          margin: 1.5em 15px 1.5em 0;
+          padding: 7px 10px;
+          max-width: 100%;
+          color: #555;
+          font-size: 16px;
+          background: #e0edff;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            margin-top: -10px;
+            border: 10px solid transparent;
+            border-left: 10px solid #e0edff;
+          }
+        }
+      }
+
+      .commonMessage {
+        position: relative;
+        display: inline-block;
+        margin: 1.5em 0 1.5em 15px;
+        padding: 7px 10px;
+        max-width: 100%;
+        color: #555;
+        font-size: 16px;
+        border-radius: 7px;
+        background: #f1f1f1;
+        & > p {
+          margin: 0;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: -20px;
+          margin-top: -10px;
+          border: 10px solid transparent;
+          border-right: 10px solid #f1f1f1;
+        }
+        &.selfMessage {
+          margin: 1.5em 15px 1.5em 0;
+          padding: 7px 10px;
+          max-width: 100%;
+          color: #555;
+          font-size: 16px;
+          background: #e0edff;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            margin-top: -10px;
+            border: 10px solid transparent;
+            border-left: 10px solid #e0edff;
+          }
+        }
+      }
+    }
+  }
+  
+  .messageInputForm {
+    position: fixed;
+    bottom:0;
+    border-top: 1px solid #e8e8e8;
+    padding: 30px 0;
+    width: 100%;
+    &_input {
+      width: 100%;
+      border: none;
+    }
+  }
 }

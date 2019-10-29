@@ -26,5 +26,7 @@
     <%= yield %>
     <% if user_signed_in?%>
       <%= render 'partial/footer' %>
-    <% end %>  </body>
+    <% end %>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
 </html>
