@@ -36,6 +36,14 @@ ja:
         one:   "1年以上"
         other: "%{count}年以上"
 
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+
   devise:
     confirmations:
       confirmed: "アカウントが確認されました。ログインしています。"
@@ -91,4 +99,4 @@ ja:
       not_locked: "ロックされていません。"
       not_saved:
         one: "エラーにより、この %{resource} を保存できません："
-        other: "%{count} 個のエラーにより、この %{resource} を保存できません：" 
+        other: "%{count} 個のエラーにより、この %{resource} を保存できません："
