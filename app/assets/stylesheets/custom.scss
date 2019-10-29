@@ -284,7 +284,7 @@ body {
       }
     }
   }
-  
+
   .messageInputForm {
     position: fixed;
     bottom:0;
@@ -296,4 +296,23 @@ body {
       border: none;
     }
   }
+}
+
+
+.imageBox {
+  float: left;
+  width: 25%;
+  margin: 15px;
+}
+
+.stat{
+  margin-right: 100px;
+}
+
+#userName{
+  font-size: 18px;
+}
+
+.bio{
+  width:60%;
 }
