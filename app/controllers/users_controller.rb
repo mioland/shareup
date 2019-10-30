@@ -2,11 +2,11 @@ class UsersController < ApplicationController
     before_action :set_user, only: %i(show following followers)
 
     def index
-      @users = User.search(params[:search])
+        @users = User.all.page(params[:page]).per(USER_PER)
     end
 
     def show
-      @user = User.find(params[:id])
+        @posts = Post.where(user_id: @user.id).order('created_at DESC').page(params[:page]).per(USER_PER)
     end
   
     def following
@@ -19,16 +19,16 @@ class UsersController < ApplicationController
 
     def likes
       @user = User.find(params[:id])
-      @posts = Post.find(Like.where(user_id: @user.id).pluck(:post_id))
+      @posts = Kaminari.paginate_array(posts).page(params[:page]).per(POST_PER)
     end
     
     def liked
       @user = User.includes(posts: [:likes, :photos]).find(params[:id])
-      @posts =@user.posts.select{|post| post.likes != []}
+      @posts = Kaminari.paginate_array(posts).page(params[:page]).per(POST_PER)
     end
     
     def notifications
-      @notifications = Notification.where(to_user_id: current_user.id)
+      @notifications = Notification.where(to_user_id: current_user.id).order('created_at DESC').page(params[:page]).per(INDEX_PER)
     end
 
     private

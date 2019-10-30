@@ -49,7 +49,8 @@
                   <div class="comment-img">
                     <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
                     <strong><%= post.user.user_name %></strong>
-                    <span><%= render_by_hashtag(post.caption) %></span> <span class="date sub-text"><%= time_ago_in_words(post.created_at).upcase %>前</span>
+                    <span><%= render_by_hashtag(post.title) %></span>
+                    <span class="date sub-text"><%= time_ago_in_words(post.created_at).upcase %>前</span>
                   </div>
                   <% if post.photos.first %>
                     <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
@@ -60,7 +61,8 @@
                   <div class="comment-img">
                     <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
                     <strong><%= post.user.user_name %></strong>
-                    <span><%= render_by_hashtag(post.caption) %></span> <span class="date sub-text"><%= time_ago_in_words(post.created_at).upcase %>前</span>
+                    <span><%= render_by_hashtag(post.title) %></span>
+                    <span class="date sub-text"><%= time_ago_in_words(post.created_at).upcase %>前</span>
                   </div>
                   <% if post.photos.first%>
                     <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
