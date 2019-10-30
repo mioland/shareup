@@ -6,4 +6,4 @@ class Hashtag < ApplicationRecord
     def posted_users
       posts.map { |post| post.user }.uniq
     end
-  end
+end
