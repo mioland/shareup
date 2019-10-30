@@ -7,15 +7,6 @@ class UsersController < ApplicationController
   
     def show
       @posts = Post.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(USER_PER)
-      if current_user.stamp_true && current_user != @user
-        foot_stamp = FootStamp.find_by(to_user_id: @user.id, from_user_id: current_user.id)
-        if foot_stamp
-          foot_stamp.touch
-          foot_stamp.update(checked: false)
-        else
-          FootStamp.create(to_user_id: @user.id, from_user_id: current_user.id)
-        end
-      end
     end
   
     def following

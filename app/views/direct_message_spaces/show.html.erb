@@ -1,18 +1,21 @@
 <div class="chatPage">
   <header class="header">
   <div class="chatPartner">
-    <div class="chatPartner_img"><%= image_tag avatar_url(@dm_space_user), class: "round-img" %></div>
-    <div class="chatPartner_name"><%= @dm_space_user.name %></div>
+    <a data-toggle="modal" data-target="#photo-<%= @dm_space_user.id %>" class="modal-open">
+      <%= image_tag avatar_url(@dm_space_user), class: "round-img" %>
+    </a>
+    <%= render "partial/user_modal", user: @dm_space_user %>
+    <div class="text-center">
+      <%= @dm_space_user.user_name %>
+    <div>
   </div>
   </header>
-  <div class="container">
-    <div class="messagesArea messages">
-      <%= render @direct_messages %>
-    </div>
+  <div id="direct_message_space-<%= @dm_space.id %>">
+    <%= render "direct_message_spaces/direct_messages", direct_messages: @direct_messages %>
   </div>
   <div class='container'>
-    <div class="row parts">
-      <%= form_with model: @direct_message, html: { class: "messageInputForm_input" } do |f| %>
+    <div class="row parts" id="direct-message-form-post-<%= @dm_space.id.to_s %>">
+      <%= form_with model: @direct_message, html: { class: "messageInputForm_input" }, remote: true do |f| %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :direct_message_space_id, value: params[:id] %>
         <%= f.text_field :message, class: "form-control comment-input border-0", placeholder: "メッセージを入力 ...", autocomplete: :off %>
@@ -20,7 +23,7 @@
           <%= n.hidden_field :to_user_id, value: @dm_space_user.id %>
           <%= n.hidden_field :from_user_id, value: current_user.id %>
         <% end %>
-        <%= f.submit %>
+        <%= f.submit "投稿する", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

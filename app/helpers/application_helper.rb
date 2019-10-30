@@ -18,9 +18,9 @@ module ApplicationHelper
       end
     end
   
-    def render_by_hashtag(caption)
-      if caption
-        caption.gsub(/[#＃][^#＃\p{blank}]+/) { |match| link_to match, hashtag_path(match.slice(1..-1)) }.html_safe
+    def render_by_hashtag(title)
+      if title
+        title.gsub(/[#＃][^#＃\p{blank}]+/) { |match| link_to match, hashtag_path(match.slice(1..-1)) }.html_safe
       end
     end
 end

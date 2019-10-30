@@ -44,7 +44,6 @@ gem 'dotenv-rails'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 gem 'font-awesome-rails'
-gem 'pusher'
 gem 'kaminari', '~> 1.1.1'
 
 group :development, :test do
