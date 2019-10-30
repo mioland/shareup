@@ -1,0 +1,8 @@
+<% provide(:title, "likes") %>
+<div class="container">
+  <div class="btn-group d-flex" role="group">
+    <%= link_to "いいねした投稿", likes_user_path(params[:id]),class: "btn btn-primary w-100" %>
+    <%= link_to "いいねされた投稿", liked_user_path(params[:id]),class: "btn btn-default w-100" %>
+  </div>
+  <%= render "partial/photos_index", posts: @posts%>
+</div>
