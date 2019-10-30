@@ -1,30 +1,41 @@
-<% provide(:title, "Post") %>
-<div class="d-flex flex-column align-items-center mt-3">
-  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
-    <div class="card">
-      <div class="card-header">
-        投稿画面
-      </div>
-      <div class="card-body">
-        <%= form_for @post, html: { multipart: true, class: "upload-images p-0 border-0" } do |f| %>
-          <div class="form-group row mt-2">
-            <div class="col-auto pr-0">
-              <%= image_tag avatar_url(current_user), class: "post-profile-icon" %>
+<%= provide(:title, '新規投稿') %>
+<div class="postEditor">
+      <%= form_for @post, html: { multipart: true, class: "upload-images p-0 border-0" } do |f| %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                  <div class="col-md-8">
+                     <div class="postEditor_form">
+                        <div class="editorTitle">
+                            <div class="form-group">
+                                <%= f.label :title, 'タイトル', class: 'form-label' %>
+                                <div class="form-layout">
+                                    <%= f.text_field :title, placeholder: 'タイトルを入力してください', class: 'form-control' %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="editorContent editorFrom_border">
+                            <div class="form-group">
+                                <%= f.label :content, '投稿内容', class: 'form-label' %>
+                                <div class="form-layout">
+                                    <%= f.text_area :content, rows: 18, cols: 60, placeholder: '内容を入力してください', class: 'form-control' %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="editorPhoto editorFrom_border">
+                            <label class="form-label">写真を追加する</label>
+                            <div id="preview-thumbnails">
+                                <%= file_field_tag "images[]", type: :file, multiple: true %>
+                            </div>
+                        </div>
+                        <div class="editorSubmit">
+                            <%= f.submit '投稿する', class: 'btn btn-primary btn-submit' %>
+                        </div>
+                      </div>
+                    </div>
+                </div>  
+            <div class="col-md-2"></div>
             </div>
-            <div class="col pl-0">
-              <%= f.text_field :title, class: "form-control border-0", placeholder: "コメントを書く(＃〜でハッシュタグ)" %>
-            </div>
-            <div class="col pl-0">
-              <%= f.text_field :content, class: "form-control border-0", placeholder: "コメントを書く(＃〜でハッシュタグ)" %>
-            </div>
-          </div>
-          <div class="mb-3">
-            <span>画像(複数選択可)</span>
-            <%= file_field_tag "images[]", type: :file, multiple: true %>
-          </div>
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+        </div>
+    <% end %>
 </div>

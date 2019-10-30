@@ -76,6 +76,85 @@ body {
 .card-wrap {
   margin: 40px 0px;
 }
+.postEditor {
+  background-color: #f8faf7;
+}
+.postEditor_form {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 20px 40px;
+}
+.editorPhoto {
+  padding-bottom: 10px;
+}
+.editorFrom_border {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.editorSubmit {
+  text-align: right;
+}
+.form-layout {
+  display: flex;
+  flex-direction: column;
+  h6 {
+    margin-left: auto;
+  }
+}
+
+.hidden {
+  display: none;
+}
+.btn-submit {
+  margin-top: 0;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+#preview-thumbnails {
+  margin: 10px 0;
+  display: flex;
+}
+.photo-form {
+  width: 100px;
+  height: 100px;
+  font-size: 30px;
+  color: #aab7b8;
+  background-color: #fafafa;
+  border: 2px solid #aab7b8;
+  border-style: dashed;
+  text-align: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.fas-height {
+  line-height: 100px;
+}
+.fa-height {
+  line-height: 22px;
+}
+.preview-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin-right: 10px;
+}
+.preview-image {
+  border-radius: 0;
+}
+.delete-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  color: #aab7b8;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  box-shadow: 0 1px 2px 0 rgba(88, 88, 88, 0.75);
+}
 
 .no-text-decoration:hover {
   text-decoration: none;
