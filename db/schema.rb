@@ -75,10 +75,16 @@ ActiveRecord::Schema.define(version: 2019_10_30_032528) do
     t.integer "to_user_id", null: false
     t.integer "from_user_id", null: false
     t.bigint "direct_message_id"
+    t.bigint "like_id"
+    t.bigint "comment_id"
+    t.bigint "relationship_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "checked", default: false, null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
     t.index ["direct_message_id"], name: "index_notifications_on_direct_message_id"
+    t.index ["like_id"], name: "index_notifications_on_like_id"
+    t.index ["relationship_id"], name: "index_notifications_on_relationship_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -133,7 +139,10 @@ ActiveRecord::Schema.define(version: 2019_10_30_032528) do
   add_foreign_key "hashtag_posts", "posts"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "notifications", "comments"
   add_foreign_key "notifications", "direct_messages"
+  add_foreign_key "notifications", "likes"
+  add_foreign_key "notifications", "relationships"
   add_foreign_key "photos", "posts"
   add_foreign_key "posts", "users"
 end
