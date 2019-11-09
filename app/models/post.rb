@@ -6,7 +6,8 @@ class Post < ApplicationRecord
     has_many :hashtag_posts, dependent: :destroy
     has_many :hashtags, through: :hashtag_posts
     validates :photos, associated: true
-  
+    mount_uploader :image, PhotoUploader
+
     after_create do
       post = Post.find_by(id: id)
       if post.title

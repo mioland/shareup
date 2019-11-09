@@ -111,3 +111,11 @@
     top: -7px;
   }
 }
+
+.navbar-brand{
+  background-repeat: no-repeat;
+  background-image: image-url("logo.png");
+  background-size: contain;
+  height: 70px;
+  width: 176px;
+}
