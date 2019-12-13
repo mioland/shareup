@@ -10,7 +10,7 @@ module ApplicationHelper
     end
   
     def full_title(page_title)
-      base_title = "Insta_App"
+      base_title = "shareup"
       if page_title.blank?
         base_title
       else
