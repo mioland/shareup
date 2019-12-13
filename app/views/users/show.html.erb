@@ -1,0 +1,39 @@
+<% provide(:title, "User" + @user.id.to_s) %>
+<div class="container">
+  <div class="profile-wrap">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <%= image_tag avatar_url(@user), class: "round-img" %>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <h1><%= @user.user_name %></h1>
+          <% if @user == current_user %>
+            <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+            <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= render "partial/follow_form", user: @user %>
+          <% end %>
+          <% unless current_user?(@user) %>
+            <%= form_tag direct_message_spaces_path, method: :post do %>
+              <input name="user_id" type="hidden" value="<%= @user.id %>" />
+              <%= submit_tag "DMを送る", class: "btn btn-primary common-btn edit-profile-btn" %>
+            <% end %>
+          <% end %>
+          <%= render "login_modal" %>
+        </div>
+        <section class="stats">
+          <%= render "partial/stats", user: @user %>
+        </section>
+        <p id="userName"><strong><%= @user.name %></strong></p>
+        <div class="bio">
+          <%= @user.bio %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%= render "partial/photos_index", posts: @posts %>
+</div>

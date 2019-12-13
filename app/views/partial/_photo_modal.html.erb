@@ -1,0 +1,85 @@
+<div class="modal fade" id="photo-<%= post.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="row">
+        <div class="mx-auto w-100">
+          <div class="row post-wrap">
+            <div class="col-lg-8">
+              <div class="card-left">
+                <div id="carousel-<%= post.id %>" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <% post.photos.each.with_index(1) do |photo, i| %>
+                      <% if i == 1 %>
+                        <div class="carousel-item active">
+                          <%= image_tag photo.image.url(:medium), class: "card-img-top" %>
+                        </div>
+                      <% else %>
+                        <div class="carousel-item">
+                          <%= image_tag photo.image.url(:medium), class: "card-img-top" %>
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel-<%= post.id%>" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-<%= post.id%>" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card-right">
+                <div class="card-right-comment pr-3">
+                  <div class="card-right-name d-flex">
+                    <%= link_to user_path(post.user), class: "no-text-decoration" do %>
+                      <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
+                      <strong><%= post.user.user_name %></strong>
+                    <% end %>
+                    <% if post.user_id == current_user.id %>
+                      <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
+                        <div class="delete-post-icon">
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="comment-post-id">
+                    <div class="m-2">
+                      <div id="comment-post-<%= post.id.to_s %>">
+                        <%= render 'posts/comment_list', post: post %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row parts">
+                  <div id="like-icon-post-<%= post.id.to_s %>">
+                    <% if post.liked_by(current_user).present? %>
+                      <%= link_to "いいねを取り消す", like_path(post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                    <% else %>
+                      <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
+                    <% end %>
+                  </div>
+                </div>
+                <div id="like-text-post-<%= post.id.to_s %>">
+                  <%= render "posts/like_text", { likes: post.likes } %>
+                </div>
+                <div class="post-time"><%= time_ago_in_words(post.created_at).upcase %>前</div>
+                <hr>
+                <div class="modal-meta-bottom" id="comment-form-post-<%= post.id.to_s %>">
+                  <%= form_for [post, Comment.new], html: { class: "w-100" }, remote: true do |f| %>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                    <%= f.hidden_field :post_id, value: post.id %>
+                    <%= f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメントを追加...", autocomplete: :off %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

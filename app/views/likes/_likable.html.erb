@@ -1,0 +1,6 @@
+<div id="likable">
+    <%= button_to post_likes_path(@post, current_user.likes.build), remote: true, class: 'like-button likable' do %>
+        <span class="fas fa-thumbs-up"></span>
+        <span class="likes-count"> <%= @post.likes.count %> </span>
+    <% end %>
+</div>
