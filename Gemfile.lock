@@ -598,6 +598,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   pusher
+  puma (~> 3.12)
   rails (~> 5.2.2, >= 5.2.2.1)
   rspec-rails
   rubocop-airbnb
