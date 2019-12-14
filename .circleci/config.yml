@@ -5,15 +5,29 @@ jobs:
       image: circleci/classic:edge
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+            - v1-gem-cache-{{ arch }}-
       - run:
           name: docker-compose build
           command: docker-compose build
+      - save_cache:
+          paths:
+            - ~/.bundle
+          key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
       - run:
           name: docker-compose up
           command: docker-compose up -d
       - run:
-          name: sleep for waiting launch db
-          command: sleep 1
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: "before_test: setup db"
           command: docker-compose run web rails db:create db:migrate
