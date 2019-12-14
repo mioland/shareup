@@ -1,24 +1,65 @@
-# README
+# Insta_app
+多機能なInstagram風の写真共有SNSです。気になる人を探してコミュニケーションを取れるSNSです。
+写真投稿、いいね、コメント、フォロー、ハッシュタグ、DM、未読通知機能などを搭載してます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+url: https://dry-river-61726.herokuapp.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 搭載機能・技術一覧
+- ユーザー管理機能
+  - devise
+    - ユーザー登録・ログイン・編集・削除機能
+    - パスワードの変更時のみ現在のパスワード入力するよう上書き
+    - テストユーザーの作成と編集・削除のアクセス制限
+  - facebookログイン(omniauth)
+    - facebookの名前、画像の取得
+  - ユーザー一覧・詳細
+- 写真投稿機能
+  - 画像アップロード(CarrierWave)
+  - 画像ストレージ（AWS S3)
+  - 画像配信CDN (AWS CloudFront)
+- フォロー機能
+  - フォローしているユーザー、されているユーザー一覧
+  - フォローしているユーザーの投稿をタイムラインに表示
+  - フォローされた時の通知
+- いいね機能
+  - いいねした投稿の保存・投稿一覧の表示
+  - いいねされた投稿一覧
+  - いいねされた通知
+- コメント機能
+  - 投稿にコメント
+  - コメントされたことの通知
+- ハッシュタグ機能
+  - 投稿ユーザーが投稿時に＃付きコメントをすることでハッシュタグの自動生成（正規表現により）
+  - ハッシュタグ一覧
+  - ハッシュタグの詳細画面
+    - 投稿画像一覧
+    - 投稿者一覧
+- DM機能
+  - 他のユーザーに対して１対１でメッセージを送信できる機能
+  - 相手が確認したかどうか分かる既読機能付き
+  - DMユーザー一覧画面
+    - 未読のDM数の表示
+- 通知機能
+  - ヘッダーに未確認の通知数を取得して表示
+  - 未確認の通知を確認済みに変更する機能
+- 非同期通信
+  - フォロー・アンフォロー・いいね・コメント・DMの作成・削除
+  - Ajax
+- ページネーション機能
+  - Kaminari
+- フロント開発
+  - Bootstrap
+- i18nによる国際化
+- テスト
+  - RSpec
+    - 単体テスト(model spec)
+    - 統合テスト(feature spec)
+  - factory_bot
+- リンター
+  - rubocop
+- 本番環境
+  - Heroku
+- DB
+  - PostgresQL
+- CI / CDパイプラインの構築
+  - CircleCI
