@@ -9,6 +9,6 @@ if Rails.env.production?
       config.fog_directory     =  ENV['S3_BUCKET']
       config.fog_attributes = {cache_control: 'max-age=31536000', expires: 1.year.from_now.httpdate}
       config.fog_public = true
-      config.asset_host = 'https://d2b556l5j4mfna.cloudfront.net'
+      config.asset_host = 'https://shareup-up.s3.amazonaws.com'
     end
 end
