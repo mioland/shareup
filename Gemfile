@@ -45,7 +45,7 @@ gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.9.4'
 gem 'font-awesome-rails'
 gem 'pusher'
-gem 'kaminari', '~> 1.1.1'
+gem 'kaminari', '~> 1.2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
